@@ -114,3 +114,57 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+
+function  articleMaker(obj)
+{
+ 
+  var test=document.createElement('div');
+  test.classList.add('article')
+  //Creating div element-Step 1
+  
+  
+   //Creating ul element
+  
+  var spanclick =document.createElement('span');
+  spanclick.classList.add('expandButton')//Step 3
+  //Create button and adding listner -Step 4
+  spanclick.addEventListener("click", function(){ 
+    test.classList.remove('article');
+    test.classList.add('article-open');
+  });
+
+   //Creating button element
+  document.body.appendChild(test);
+  test.appendChild(ul);
+  
+  //iterating the menu items-Step 2
+var h2;
+var p;
+
+  for(var propt in obj){
+  
+
+
+test.innerHTML+=obj["firstpara"];
+test.innerHTML+=obj["secondpara"];
+test.innerHTML+=obj["thirdpara"];
+
+h2= document.createElement('h2');
+p= document.createElement('p');
+p.classList.add('date');
+h2.innerHTML= obj["title"];
+p.innerHTML=obj["date"];
+
+test.appendChild(h2);
+test.appendChild(p);
+
+
+test.appendChild(spanclick);
+}
+
+  
+  
+  return test;//Step 5
+
+}
